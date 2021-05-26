@@ -32,11 +32,15 @@ class Doctor {
         this.diagnostique=()=>{
 
         }
-        this.patienIIn =(lieu, patient, salleAttente)=>{
+        this.patienIn =(lieu, patient, salleAttente)=>{
             lieu.push(this.nom);
-            console.log(`${this.nom} a fait rentré ${Patients.nom}`)
+            console.log(`${this.nom} a fait rentré ${Patients.nom} dans son cabinet`);
+            salleAttente.perssonne.splice(salleAttente.perssonne.indexOf(patient),1);
         }
-        this.patientOut = patientOut
+        this.patientOut =(lieu, patient)=>{
+            lieu.splice(0,1);
+            console.log(`${this.nom} a fait rentré ${patient.nom} dans son cabinet`);
+        }
     }
 }
 
@@ -87,3 +91,10 @@ let f12_doc = new Tarifs("f12+doc", 20);
 // PATIENTS Marcus
 let marcus = new Patients("Marcus", "mal indenté", 50,"",);
 let optimus = new Patients("Optimus","unsave","mal", 150);
+
+
+lira.patienIn(lira.cabinet, pac1, salleAttente);
+console.log(lira.cabinet);
+console.log(salleAttente);
+lira.patientOut(docStan.cabinet,);
+console.log(lira.cabinet);
