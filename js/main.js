@@ -1,80 +1,6 @@
-    // DEBUT DES CLASS 
-class Patients {
-    constructor(nom, malades, argent, poche, etatSanté){
-        this.nom = nom,
-        this.malades = malades,
-        this.argent = argent,
-        this.poche = poche,
-        this.etatSanté = etatSanté,
-        
-        this.goTo=()=>{
+import {Patients, Doctor, Diagnostique, Tarifs, Lieux} from'./classe.js';
 
-        }
-
-        this.takeCare=()=>{
-
-        }
-
-        this.paye=(traitement)=>{
-            this.argent -= Tarifs.prix;
-        }
-
-        
-    }
-}
-
-class Doctor {
-    constructor(nom, argent, cabinet){
-        this.nom = nom,
-        this.argent = argent,
-        this.cabinet = cabinet,
-
-        this.diagnostique=()=>{
-
-        }
-        this.patienIn =(lieu, patient, salleAttente)=>{
-            lieu.push(this.nom);
-            console.log(`${this.nom} a fait rentré ${Patients.nom} dans son cabinet`);
-            salleAttente.perssonne.splice(salleAttente.perssonne.indexOf(patient),1);
-        }
-        this.patientOut =(lieu, patient)=>{
-            lieu.splice(0,1);
-            console.log(`${this.nom} a fait rentré ${patient.nom} dans son cabinet`);
-        }
-    }
-}
-
-let lira = new Doctor("Dr Lira",0,[]);
-
-class Diagnostique{
-    constructor(maldie, traitement){
-        this.maldie = maldie,
-        this.traitement = traitement
-    }
-}
-
-class Tarifs{
-    constructor(traitement, prix){
-        this.traitement = traitement,
-        this.prix = prix
-    }
-}
-
-class Lieux{
-    constructor(nom,patients){
-        this.nom = nom,
-        this.patients =  patients;
-        
-    }
-}
-// FIN DES CLASS
-
-// let ctrl_maj_f = new diagnostique("ctrl+maj+f");
-function Lechat(){
-    console.log("Miau");
-}
-
-
+// LIEUX
 let pharmacie = new Lieux("Pharmacie",[]);
 let cimetière = new Lieux("Cimetière",[]);
 let salleAttente = new Lieux("Salle d'attente",[]);
@@ -90,11 +16,22 @@ let f12_doc = new Tarifs("f12+doc", 20);
 
 // PATIENTS Marcus
 let marcus = new Patients("Marcus", "mal indenté", 50,"",);
-let optimus = new Patients("Optimus","unsave","mal", 150);
+let optimus = new Patients("Optimus","unsave", 150);
+let sonGoku = new Patients("Son Goku,", "404");
+let patient4 = new Patients("Patient4");
+let patient5 = new Patients("Patient5");
+
+let lira = new Doctor("Dr Lira",0,[]);
+
+salleAttente.push(marcus.nom, optimus.nom, sonGoku.nom, patient4.nom, patient5.nom);
+marcus.goTo();
+console.log(`dans la salle d'attente il y a ${salleAttente.indexOf()} persones`);
 
 
-lira.patienIn(lira.cabinet, pac1, salleAttente);
+lira.patienIn(lira.cabinet, salleAttente);
 console.log(lira.cabinet);
 console.log(salleAttente);
-lira.patientOut(docStan.cabinet,);
+lira.patientOut(lira.cabinet,);
 console.log(lira.cabinet);
+lira.diagnostique(0);
+lira.diagnostique(3);
